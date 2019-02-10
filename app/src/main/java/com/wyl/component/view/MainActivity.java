@@ -1,35 +1,39 @@
 package com.wyl.component.view;
 
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.wyl.basemodule.BaseActivity;
 import com.wyl.component.R;
 import com.wyl.component.databinding.ActivityMainBinding;
 import com.wyl.component.view.fragment.HomeFragment;
 import com.wyl.component.view.fragment.MineFragment;
 import com.wyl.component.view.fragment.OtherFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity<ActivityMainBinding> {
     FragmentManager fragmentManager;
     Fragment[] fragments;
-    ActivityMainBinding mainBinding;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+    protected int getLayoutId() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    protected void afterCreate(Bundle savedInstanceState) {
+        init();
+    }
+
+    private void init() {
         fragmentManager = getSupportFragmentManager();
         fragments = new Fragment[]{
                 new HomeFragment(), new MineFragment(), new OtherFragment()
         };
 
         fragmentManager.beginTransaction().show(fragments[0]).commit();
-
     }
 
     void hideAllFragment(FragmentTransaction transaction) {
