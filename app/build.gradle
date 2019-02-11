@@ -33,7 +33,8 @@ dependencies {
     if (rootProject.ext.isApplication) {
         implementation project(':basemodule')
     } else {
-        implementation project(path: ':homemodule')
+        implementation project(':homemodule')
+        implementation project(':minemodule')
     }
 
 }

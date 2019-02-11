@@ -9,9 +9,9 @@ import android.view.View;
 import com.wyl.basemodule.BaseActivity;
 import com.wyl.component.R;
 import com.wyl.component.databinding.ActivityMainBinding;
-import com.wyl.component.view.fragment.MineFragment;
 import com.wyl.component.view.fragment.OtherFragment;
 import com.wyl.homemodule.HomeFragment;
+import com.wyl.minemodule.MineFragment;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding> {
     FragmentManager fragmentManager;

@@ -3,4 +3,6 @@
     <string name="modulebase_main_home">首页</string>
     <string name="modulebase_main_mine">我的</string>
     <string name="modulebase_main_other">其他</string>
+
+    <string name="modulebase_login">点击登录</string>
 </resources>
