@@ -27,10 +27,15 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation rootProject.ext.dependencies.appcompatV7
-    implementation rootProject.ext.dependencies.constraintLayout
-    implementation rootProject.ext.dependencies.extensions
+    api rootProject.ext.dependencies.appcompatV7
+    api rootProject.ext.dependencies.constraintLayout
+    api rootProject.ext.dependencies.extensions
+    api rootProject.ext.dependencies.recyclerview_v7
+    api rootProject.ext.dependencies.cardview_v7
+    api rootProject.ext.dependencies.design
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    api project(':commonmodule')
 }

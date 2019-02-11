@@ -9,9 +9,9 @@ import android.view.View;
 import com.wyl.basemodule.BaseActivity;
 import com.wyl.component.R;
 import com.wyl.component.databinding.ActivityMainBinding;
-import com.wyl.component.view.fragment.HomeFragment;
 import com.wyl.component.view.fragment.MineFragment;
 import com.wyl.component.view.fragment.OtherFragment;
+import com.wyl.homemodule.HomeFragment;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding> {
     FragmentManager fragmentManager;
@@ -33,35 +33,46 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
                 new HomeFragment(), new MineFragment(), new OtherFragment()
         };
 
-        fragmentManager.beginTransaction().show(fragments[0]).commit();
+        for (int i = 0; i < fragments.length; i++) {
+            Fragment fragment = fragmentManager.findFragmentByTag(String.valueOf(i));
+            if (fragment != null) {
+                fragmentManager.beginTransaction().remove(fragment).commit();
+            }
+        }
+
+        fragmentManager.beginTransaction().add(R.id.frameLayout, fragments[0], String.valueOf(0)).commit();
     }
 
-    void hideAllFragment(FragmentTransaction transaction) {
+    void hideAllFragment() {
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
         for (Fragment fragment : fragments) {
             transaction.hide(fragment);
         }
+        transaction.commit();
     }
 
     void showFragment(int i) {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        hideAllFragment(transaction);
         if (fragments[i].isAdded()) {
             transaction.show(fragments[i]);
         } else {
-            transaction.add(R.id.frameLayout, fragments[i], String.valueOf(i));
+            transaction.add(R.id.frameLayout, fragments[i], String.valueOf(i)).show(fragments[i]);
         }
         transaction.commit();
     }
 
     public void onClickBtHome(View view) {
+        hideAllFragment();
         showFragment(0);
     }
 
     public void onClickBtMine(View view) {
+        hideAllFragment();
         showFragment(1);
     }
 
     public void onClickBtOther(View view) {
+        hideAllFragment();
         showFragment(2);
     }
 }

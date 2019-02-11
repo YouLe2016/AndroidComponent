@@ -27,15 +27,14 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation rootProject.ext.dependencies.appcompatV7
-    implementation rootProject.ext.dependencies.constraintLayout
-    implementation rootProject.ext.dependencies.extensions
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     // 这个CommonModule主要为了进行一些通用的网络库
-
+    api rootProject.ext.dependencies.tkrefreshlayout
+    api rootProject.ext.dependencies.banner
+    api rootProject.ext.dependencies.glide
 
 
 

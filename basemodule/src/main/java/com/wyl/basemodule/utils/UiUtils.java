@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.wyl.base.base.BaseApp;
+import com.wyl.basemodule.BaseApplication;
 
 /**
  * 屏幕操作的工具类
@@ -18,7 +18,7 @@ public class UiUtils {
     private static final String TAG = "UiUtils";
 
     public static int dp2px(float dp) {
-        float density = BaseApp.getInstance().getResources().getDisplayMetrics().density;
+        float density = BaseApplication.getContext().getResources().getDisplayMetrics().density;
         return (int) (dp * density + 0.5);
     }
 
@@ -134,7 +134,7 @@ public class UiUtils {
      * log输出设备屏幕信息
      */
     public static void logMetricsValues() {
-        DisplayMetrics metrics = BaseApp.getInstance().getResources().getDisplayMetrics();
+        DisplayMetrics metrics = BaseApplication.getContext().getResources().getDisplayMetrics();
         LogUtils.i(TAG, "density: " + metrics.density);
         LogUtils.i(TAG, "scaledDensity: " + metrics.scaledDensity);
         LogUtils.i(TAG, "densityDpi: " + metrics.densityDpi);

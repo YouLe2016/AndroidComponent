@@ -1,10 +1,9 @@
-package com.wyl.component;
+package debug;
 
 import com.wyl.basemodule.BaseApplication;
 
-
 /**
- * 时间：2019/2/9 15:10
+ * 时间：2019/2/9 15:03
  * 描述：
  * 修改人：
  * 修改时间：
@@ -17,7 +16,5 @@ public class App extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        ModuleASdkInit.getInstance().init();
-        ModuleBSdkInit.getInstance().init();
     }
 }

@@ -1,4 +1,4 @@
-package com.wyl.basemodule.utils;
+package com.wyl.commonmodule.utils;
 
 //import okhttp3.OkHttpClient;
 //import okhttp3.logging.HttpLoggingInterceptor;
