@@ -35,6 +35,7 @@ dependencies {
     } else {
         implementation project(':homemodule')
         implementation project(':minemodule')
+        implementation project(':loginmodule')
     }
 
 }

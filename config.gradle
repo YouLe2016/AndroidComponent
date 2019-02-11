@@ -20,7 +20,8 @@ ext {
 
             tkrefreshlayout : 'com.lcodecorex:tkrefreshlayout:1.0.7',
             glide           : 'com.github.bumptech.glide:glide:4.8.0',
-            banner           : 'com.youth.banner:banner:1.4.10'  ,
+            banner          : 'com.youth.banner:banner:1.4.10',
+            eventbus        : 'org.greenrobot:eventbus:3.1.1',
 
     ]
 }

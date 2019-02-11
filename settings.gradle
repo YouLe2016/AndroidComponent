@@ -1,3 +1,3 @@
-include ':app',  ':basemodule', ':commonmodule', ':homemodule', ':minemodule'
+include ':app',  ':basemodule', ':commonmodule', ':homemodule', ':minemodule', ':loginmodule'
 
 //':modulea', ':moduleb',

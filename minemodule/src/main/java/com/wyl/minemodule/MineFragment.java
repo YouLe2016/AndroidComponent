@@ -34,5 +34,18 @@ public class MineFragment extends BaseFragment<MinemoduleFragmentMineBinding> im
     public void onClick(View v) {
         // 点击跳转到登录页面
         ToastUtils.showShortToast("点击跳转到登录页面");
+        intent2Login();
+    }
+
+    void intent2Login() {
+        try {
+            Class login = Class.forName("com.wyl.loginmodule.LoginActivity");
+            Bundle bundle = new Bundle();
+            bundle.putString("info", "123");
+            startActivity(login, bundle);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            ToastUtils.showShortToast(e.getMessage());
+        }
     }
 }

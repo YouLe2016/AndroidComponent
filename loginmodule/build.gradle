@@ -1,14 +1,20 @@
-apply plugin: 'com.android.library'
-
+if (rootProject.ext.isApplication) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     defaultConfig {
+        if (rootProject.ext.isApplication) {
+            applicationId "com.wyl.loginmodule"
+        }
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        resourcePrefix "modulecommon_"
+        resourcePrefix "loginmodule_"
     }
     buildTypes {
         release {
@@ -16,6 +22,22 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main {
+            if (rootProject.ext.isApplication) {
+                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+                java {
+                    exclude 'release/*'
+                }
+            } else {
+                manifest.srcFile 'src/main/release/AndroidManifest.xml'
+                java {
+                    exclude 'debug/*'
+                }
+            }
+        }
+    }
+
     dataBinding {
         enabled = true
     }
@@ -31,13 +53,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
-    // 这个CommonModule主要为了进行一些通用的网络库
-    api rootProject.ext.dependencies.tkrefreshlayout
-    api rootProject.ext.dependencies.banner
-    api rootProject.ext.dependencies.glide
-    api rootProject.ext.dependencies.eventbus
-
-
-
+    api project(':basemodule')
 
 }
