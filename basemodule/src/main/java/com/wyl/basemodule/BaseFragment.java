@@ -65,4 +65,16 @@ public abstract class BaseFragment<T extends ViewDataBinding> extends Fragment {
         startActivity(intent);
     }
 
+    protected void startActivityForResult(Class clazz, int requestCode) {
+        Intent intent = new Intent(getActivity(), clazz);
+        startActivityForResult(intent, requestCode);
+    }
+
+    protected void startActivityForResult(Class clazz, Bundle bundle, int requestCode) {
+        Intent intent = new Intent(getActivity(), clazz);
+        intent.putExtras(bundle);
+        startActivityForResult(intent, requestCode);
+    }
+
+
 }

@@ -55,4 +55,7 @@ dependencies {
 
     api project(':basemodule')
 
+    api rootProject.ext.dependencies.activityrouter
+    annotationProcessor rootProject.ext.dependencies.activityrouter_compiler
+
 }

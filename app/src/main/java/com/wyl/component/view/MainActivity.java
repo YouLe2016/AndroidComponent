@@ -1,5 +1,6 @@
 package com.wyl.component.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -7,11 +8,17 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 
 import com.wyl.basemodule.BaseActivity;
+import com.wyl.basemodule.utils.ToastUtils;
 import com.wyl.component.R;
 import com.wyl.component.databinding.ActivityMainBinding;
 import com.wyl.component.view.fragment.OtherFragment;
 import com.wyl.homemodule.HomeFragment;
+import com.wyl.loginmodule.eventbus.LoginEvent;
 import com.wyl.minemodule.MineFragment;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding> {
     FragmentManager fragmentManager;
@@ -24,10 +31,11 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
     @Override
     protected void afterCreate(Bundle savedInstanceState) {
-        init();
+        EventBus.getDefault().register(this);
+        initFragment();
     }
 
-    private void init() {
+    private void initFragment() {
         fragmentManager = getSupportFragmentManager();
         fragments = new Fragment[]{
                 new HomeFragment(), new MineFragment(), new OtherFragment()
@@ -75,4 +83,17 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         hideAllFragment();
         showFragment(2);
     }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(LoginEvent event) {
+        ToastUtils.showShortToast(event.data);
+    }
+
 }
