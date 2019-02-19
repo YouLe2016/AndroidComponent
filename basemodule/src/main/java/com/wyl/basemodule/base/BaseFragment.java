@@ -1,4 +1,4 @@
-package com.wyl.basemodule;
+package com.wyl.basemodule.base;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
@@ -11,6 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -42,6 +45,7 @@ public abstract class BaseFragment<T extends ViewDataBinding> extends Fragment {
     }
 
     protected void createViewModel() {
+
 
     }
 

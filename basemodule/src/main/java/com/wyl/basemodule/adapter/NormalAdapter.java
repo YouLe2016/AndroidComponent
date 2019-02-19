@@ -14,7 +14,7 @@ import java.util.List;
  * @author WangYoule
  * @qq 270628297
  */
-public class NormalAdapter<T extends BindingData> extends BindingAdapter<T> {
+public class NormalAdapter<T extends BindingData> extends DataBindingAdapter<T> {
 
     public NormalAdapter(List<T> data, int variableId) {
         super(data, variableId);

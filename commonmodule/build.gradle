@@ -8,7 +8,7 @@ android {
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        resourcePrefix "modulecommon_"
+        resourcePrefix "commonmodule_"
     }
     buildTypes {
         release {
@@ -37,10 +37,11 @@ dependencies {
     api rootProject.ext.dependencies.glide
     annotationProcessor rootProject.ext.dependencies.glide_compiler
     api rootProject.ext.dependencies.eventbus
+    api rootProject.ext.dependencies.rxbinding
+    api rootProject.ext.dependencies.xxpermissions
 
 //    api rootProject.ext.dependencies.activityrouter
 //    annotationProcessor rootProject.ext.dependencies.activityrouter_compiler
-
 
 
 

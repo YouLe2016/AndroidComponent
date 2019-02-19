@@ -9,10 +9,10 @@ import android.support.v7.widget.LinearLayoutManager;
 
 import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter;
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
-import com.wyl.basemodule.BaseFragment;
+import com.wyl.basemodule.banner.GlideImageLoader;
+import com.wyl.basemodule.base.BaseFragment;
 import com.wyl.basemodule.adapter.NormalAdapter;
 import com.wyl.basemodule.utils.ToastUtils;
-import com.wyl.commonmodule.banner.GlideImageLoader;
 import com.wyl.homemodule.databinding.ModulehomeFragmentHomeBinding;
 import com.wyl.homemodule.databinding.ModulehomeItemHomeHeaderBinding;
 
@@ -58,6 +58,7 @@ public class HomeFragment extends BaseFragment<ModulehomeFragmentHomeBinding> {
                     public void run() {
                         ToastUtils.showShortToast("刷新完成");
                         refreshLayout.finishRefreshing();
+                        adapter.getDataList().get(0).setStr("刷新成功");
                     }
                 }, 2000);
             }
@@ -74,7 +75,6 @@ public class HomeFragment extends BaseFragment<ModulehomeFragmentHomeBinding> {
         });
     }
 
-
     private List<Integer> getBannerImages() {
         List<Integer> data = new ArrayList<>();
         data.add(R.drawable.ic_launcher);
@@ -87,19 +87,18 @@ public class HomeFragment extends BaseFragment<ModulehomeFragmentHomeBinding> {
 
     private List<HomeItemBean> getHomeList() {
         List<HomeItemBean> data = new ArrayList<>();
-        data.add(new HomeItemBean(R.drawable.ic_launcher));
-        data.add(new HomeItemBean(R.drawable.ic_launcher));
-        data.add(new HomeItemBean(R.drawable.ic_launcher));
-        data.add(new HomeItemBean(R.drawable.ic_launcher));
-        data.add(new HomeItemBean(R.drawable.ic_launcher));
+        data.add(new HomeItemBean(R.drawable.ic_launcher, "abc"));
+        data.add(new HomeItemBean(R.drawable.ic_launcher, "abc"));
+        data.add(new HomeItemBean(R.drawable.ic_launcher, "abc"));
+        data.add(new HomeItemBean(R.drawable.ic_launcher, "abc"));
+        data.add(new HomeItemBean(R.drawable.ic_launcher, "abc"));
+        data.add(new HomeItemBean(R.drawable.ic_launcher, "abc"));
+        data.add(new HomeItemBean(R.drawable.ic_launcher, "abc"));
+        data.add(new HomeItemBean(R.drawable.ic_launcher, "abc"));
+        data.add(new HomeItemBean(R.drawable.ic_launcher, "abc"));
+        data.add(new HomeItemBean(R.drawable.ic_launcher, "abc"));
         return data;
     }
-
-
-
-
-
-
 
     /*private class HomeAdapter extends RecyclerView.Adapter {
 

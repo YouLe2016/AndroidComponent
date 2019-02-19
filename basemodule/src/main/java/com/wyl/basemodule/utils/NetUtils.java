@@ -1,4 +1,4 @@
-package com.wyl.commonmodule.utils;
+package com.wyl.basemodule.utils;
 
 //import okhttp3.OkHttpClient;
 //import okhttp3.logging.HttpLoggingInterceptor;
@@ -16,18 +16,18 @@ package com.wyl.commonmodule.utils;
  * @author WangYoule
  * @qq 270628297
  */
-//public class RetrofitUtils {
+//public class NetUtils {
 //
-//    private RetrofitUtils() {
+//    private NetUtils() {
 //    }
 //
-//    public static RetrofitUtils getInstance() {
+//    public static NetUtils getInstance() {
 //        return Holder.INSTANCE;
 //
 //    }
 //
 //    private static class Holder {
-//        private static RetrofitUtils INSTANCE = new RetrofitUtils();
+//        private static NetUtils INSTANCE = new NetUtils();
 //    }
 //
 //    private Retrofit retrofit;

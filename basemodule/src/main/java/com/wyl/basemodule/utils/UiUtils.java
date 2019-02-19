@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.wyl.basemodule.BaseApplication;
+import com.wyl.basemodule.base.BaseApplication;
 
 /**
  * 屏幕操作的工具类

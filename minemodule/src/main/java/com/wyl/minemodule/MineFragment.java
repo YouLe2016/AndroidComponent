@@ -7,7 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 
 import com.github.mzule.activityrouter.router.Routers;
-import com.wyl.basemodule.BaseFragment;
+import com.wyl.basemodule.base.BaseFragment;
 import com.wyl.basemodule.utils.ToastUtils;
 import com.wyl.minemodule.databinding.MinemoduleFragmentMineBinding;
 

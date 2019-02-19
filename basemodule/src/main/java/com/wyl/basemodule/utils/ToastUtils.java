@@ -3,7 +3,7 @@ package com.wyl.basemodule.utils;
 
 import android.widget.Toast;
 
-import com.wyl.basemodule.BaseApplication;
+import com.wyl.basemodule.base.BaseApplication;
 
 
 public class ToastUtils {

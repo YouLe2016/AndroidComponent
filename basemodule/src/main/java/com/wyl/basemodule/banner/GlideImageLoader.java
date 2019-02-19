@@ -1,4 +1,4 @@
-package com.wyl.commonmodule.banner;
+package com.wyl.basemodule.banner;
 
 import android.content.Context;
 import android.widget.ImageView;

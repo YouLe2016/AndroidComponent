@@ -1,6 +1,6 @@
 package com.wyl.component;
 
-import com.wyl.basemodule.BaseApplication;
+import com.wyl.basemodule.base.BaseApplication;
 
 
 /**

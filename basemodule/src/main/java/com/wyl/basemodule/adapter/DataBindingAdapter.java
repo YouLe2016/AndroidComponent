@@ -23,7 +23,7 @@ import java.util.List;
  * @author WangYoule
  * @qq 270628297
  */
-public abstract class BindingAdapter<T extends BindingData> extends RecyclerView.Adapter {
+public abstract class DataBindingAdapter<T extends BindingData> extends RecyclerView.Adapter {
 
     private static final int HEADER = 1000;
     private static int FOOTER = 2000;
@@ -39,16 +39,10 @@ public abstract class BindingAdapter<T extends BindingData> extends RecyclerView
         this.footerBinding = footerBinding;
     }
 
-    private View headerView;
-
-    public void setHeaderView(View headerView) {
-        this.headerView = headerView;
-    }
-
     protected List<T> dataList;
     int variableId;
 
-    public BindingAdapter(List<T> data, int variableId) {
+    public DataBindingAdapter(List<T> data, int variableId) {
         this.dataList = data;
         this.variableId = variableId;
     }
@@ -60,6 +54,7 @@ public abstract class BindingAdapter<T extends BindingData> extends RecyclerView
     public void setNewDataList(List<T> dataList) {
         this.dataList.clear();
         this.dataList.addAll(dataList);
+        notifyDataSetChanged();
     }
 
     public List<T> getDataList() {
@@ -98,11 +93,9 @@ public abstract class BindingAdapter<T extends BindingData> extends RecyclerView
         ViewDataBinding binding = ((BindingViewHolder) holder).getBinding();
         binding.setVariable(variableId, dataList.get(index));
         binding.executePendingBindings();//此方法必须执行在UI线程，当绑定的数据修改时更新视图（不知道翻译的准不准）
-        binding.getRoot().setOnClickListener(v -> {
-            if (onItemClickListener != null) {
-                onItemClickListener.onClicked(binding, index);
-            }
-        });
+        if (onItemClickListener != null) {
+            binding.getRoot().setOnClickListener(v -> onItemClickListener.onClicked(binding, index));
+        }
         setItemChildClickListener(binding, index);
     }
 
@@ -133,20 +126,18 @@ public abstract class BindingAdapter<T extends BindingData> extends RecyclerView
     }
 
     public void remove(int position) {
-        // todo
         dataList.remove(position);
-        int internalPosition = correctPosition(position);
-        notifyItemRemoved(internalPosition);
+        int correctPosition = correctPosition(position);
+        notifyItemRemoved(correctPosition);
         int itemCount = dataList.size() - position;
-        Log.d("Look", "remove: itemCount = " + itemCount);
-        notifyItemRangeChanged(internalPosition, itemCount);
+        notifyItemRangeChanged(correctPosition, itemCount);
     }
 
     public void insert(int position, T data) {
-        // todo
         dataList.add(position, data);
-        notifyItemInserted(position);
-        notifyDataSetChanged();
+        int correctPosition = correctPosition(position);
+        notifyItemInserted(correctPosition);
+        notifyItemRangeChanged(correctPosition, dataList.size() - position);
     }
 
     private int correctPosition(int position) {
@@ -155,13 +146,6 @@ public abstract class BindingAdapter<T extends BindingData> extends RecyclerView
 
     public interface OnItemClickListener {
         void onClicked(ViewDataBinding binding, int position);
-    }
-
-    class ViewHolder extends RecyclerView.ViewHolder {
-
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-        }
     }
 
 }

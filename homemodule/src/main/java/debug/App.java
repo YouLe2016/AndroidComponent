@@ -1,6 +1,6 @@
 package debug;
 
-import com.wyl.basemodule.BaseApplication;
+import com.wyl.basemodule.base.BaseApplication;
 
 /**
  * 时间：2019/2/9 15:03

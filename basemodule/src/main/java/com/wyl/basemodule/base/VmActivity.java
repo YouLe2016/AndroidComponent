@@ -1,4 +1,4 @@
-package com.wyl.basemodule;
+package com.wyl.basemodule.base;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.ViewDataBinding;

@@ -3,7 +3,7 @@ ext {
 
     android = [
             compileSdkVersion: 27,
-            applicationId    : "com.wyl.component",
+            applicationId    : "com.wyl.googletodoapp",
             minSdkVersion    : 21,
             targetSdkVersion : 27,
             versionCode      : 1,
@@ -22,9 +22,19 @@ ext {
             glide                  : 'com.github.bumptech.glide:glide:4.8.0',
             glide_compiler         : 'com.github.bumptech.glide:compiler:4.8.0',
             banner                 : 'com.youth.banner:banner:1.4.10',
+
             eventbus               : 'org.greenrobot:eventbus:3.1.1',
+            rxbinding              : 'com.jakewharton.rxbinding3:rxbinding:3.0.0-alpha2',
+            litepal                : 'org.litepal.android:java:3.0.0',
+            xxpermissions          : 'com.hjq:xxpermissions:5.2',
+
+            // Retrofit
+            retrofit               : 'com.squareup.retrofit2:retrofit:2.3.0',
+            converter_gson         : 'com.squareup.retrofit2:converter-gson:2.3.0',
+            adapter_rxjava2        : 'com.squareup.retrofit2:adapter-rxjava2:2.3.0',
+            logging_interceptor    : 'com.squareup.okhttp3:logging-interceptor:3.9.1',
+
             activityrouter         : 'com.github.mzule.activityrouter:activityrouter:1.2.2',
             activityrouter_compiler: 'com.github.mzule.activityrouter:compiler:1.1.7',
-
     ]
 }

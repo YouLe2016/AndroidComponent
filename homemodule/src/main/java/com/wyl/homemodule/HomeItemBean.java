@@ -1,5 +1,8 @@
 package com.wyl.homemodule;
 
+import android.databinding.BaseObservable;
+import android.databinding.Bindable;
+
 import com.wyl.basemodule.adapter.BindingData;
 
 /**
@@ -12,11 +15,13 @@ import com.wyl.basemodule.adapter.BindingData;
  * @author WangYoule
  * @qq 270628297
  */
-public class HomeItemBean implements BindingData {
+public class HomeItemBean extends BaseObservable implements BindingData {
     private int resourceId;
+    private String str;
 
-    public HomeItemBean(int resourceId) {
+    public HomeItemBean(int resourceId, String str) {
         this.resourceId = resourceId;
+        this.str = str;
     }
 
     public int getResourceId() {
@@ -25,6 +30,16 @@ public class HomeItemBean implements BindingData {
 
     public void setResourceId(int resourceId) {
         this.resourceId = resourceId;
+    }
+
+    @Bindable
+    public String getStr() {
+        return str;
+    }
+
+    public void setStr(String str) {
+        this.str = str;
+        notifyPropertyChanged(BR.str);
     }
 
     @Override

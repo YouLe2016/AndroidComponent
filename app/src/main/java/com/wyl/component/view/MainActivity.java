@@ -1,20 +1,16 @@
 package com.wyl.component.view;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 
-import com.wyl.basemodule.BaseActivity;
+import com.wyl.basemodule.base.BaseActivity;
 import com.wyl.basemodule.utils.ToastUtils;
 import com.wyl.component.R;
 import com.wyl.component.databinding.ActivityMainBinding;
 import com.wyl.component.view.fragment.OtherFragment;
-import com.wyl.homemodule.HomeFragment;
-import com.wyl.loginmodule.eventbus.LoginEvent;
-import com.wyl.minemodule.MineFragment;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
